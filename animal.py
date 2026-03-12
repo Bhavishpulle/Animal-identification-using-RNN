@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Load the pre-trained ResNet50 model
 model = ResNet50()
 #Load and preprocess the image
-img_path = 'elephant.jpg'
+img_path = input("Enter image lath (name): ")
 img = image.load_img(img_path, target_size=(224, 224))
 img_array = image.img_to_array(img)
 print("size of the array : ",img_array.shape)
@@ -31,7 +31,7 @@ plt.show()
 # Draw bounding boxes on the image
 for _, label, score in decoded_predictions[0]:
     if score > 0.8:  # Adjust the threshold based on your needs
-        print("Object:",label,"Score:",score)
+        print(f"Object: {label} Score: {score}")
         cv2.putText(
             img,
             f"{label}: {score:.2f}",
@@ -42,5 +42,6 @@ for _, label, score in decoded_predictions[0]:
             1,
             cv2.LINE_4,
         )
+plt.axis('off')
 plt.imshow(img)
 plt.show()
