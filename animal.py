@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Load the pre-trained ResNet50 model
 model = ResNet50()
 #Load and preprocess the image
-img_path = input("Enter image lath (name): ")
+img_path = input("Enter image path (name): ")
 img = image.load_img(img_path, target_size=(224, 224))
 img_array = image.img_to_array(img)
 print("size of the array : ",img_array.shape)
